@@ -10,13 +10,13 @@ PATH_DATA_MSFT = PATH_STORAGE.joinpath('MSFT.csv')
 
 
 data = pd.read_csv(PATH_DATA_MSFT)
-data = utils.data_utils.auto.data_auto(data)
+data = utils.data.auto.data_auto(data)
 
 print('Data shape:', data.shape)
 print('Data example:', data[0])
 
-data_x = utils.data_utils.batcher.get_batched_data(data, 32)
-data_y = utils.data_utils.batcher.get_batched_data(data, 1)
+data_x = utils.data.batcher.get_batched_data(data, 32)
+data_y = utils.data.batcher.get_batched_data(data, 1)
 
 data_x = data_x[:-1]
 
