@@ -25,5 +25,5 @@ data_y = data_y[32:, 4]
 
 print('Data x shape:', data_x.shape)
 print('Data y shape:', data_y.shape)
-print('Data x example:', data_x[0])
-print('Data y example:', data_y[0])
+
+
