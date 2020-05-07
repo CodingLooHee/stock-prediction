@@ -9,8 +9,21 @@ PATH_STORAGE = PATH_CWD.joinpath('data')
 PATH_DATA_MSFT = PATH_STORAGE.joinpath('MSFT.csv')
 
 
-raw = pd.read_csv(PATH_DATA_MSFT)
-raw = utils.data_utils.auto.data_auto(raw)
+data = pd.read_csv(PATH_DATA_MSFT)
+data = utils.data_utils.auto.data_auto(data)
 
-print('Data shape:', raw.shape)
-print('Data example:', raw[0])
+print('Data shape:', data.shape)
+print('Data example:', data[0])
+
+data_x = utils.data_utils.batcher.get_batched_data(data, 32)
+data_y = utils.data_utils.batcher.get_batched_data(data, 1)
+
+data_x = data_x[:-1]
+
+data_y = data_y.reshape([-1, 6])
+data_y = data_y[32:, 4]
+
+print('Data x shape:', data_x.shape)
+print('Data y shape:', data_y.shape)
+print('Data x example:', data_x[0])
+print('Data y example:', data_y[0])
