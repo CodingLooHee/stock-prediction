@@ -9,4 +9,5 @@ def model_v1(input_shape):
     model.add(keras.layers.LSTM(32, activation='relu', return_sequences=False))
     model.add(keras.layers.Dropout(0.2))
     model.add(keras.layers.Dense(1, activation='linear'))
+    model.compile(optimizer='adam', loss='mse')
     return model
