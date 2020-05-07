@@ -6,5 +6,7 @@ def data_auto(data):
     data_min = data.min(axis=0)
 
     data = (data - data_min) / (data_max - data_min)
+    
+    data = np.array(data)
 
     return data
