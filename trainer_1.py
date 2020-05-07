@@ -23,7 +23,7 @@ data_x = data_x[:-1]
 data_y = data_y.reshape([-1, 6])
 data_y = data_y[32:, 4]
 
-print('Data x shape:', data_x.shape)
-print('Data y shape:', data_y.shape)
+print('Batched data x shape:', data_x.shape)
+print('Batched data y shape:', data_y.shape)
 
 
