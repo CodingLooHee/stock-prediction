@@ -33,3 +33,5 @@ print('Batched data y shape:', data_y.shape)
 
 model = utils.model.get_model.model_v1(input_shape=(32, 6))
 model.summary()
+
+model.fit(data_x, data_y, epochs=10, verbose=2)
