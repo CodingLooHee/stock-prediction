@@ -15,12 +15,9 @@ print('Data shape:', data.shape)
 print('Data example:', data[0])
 
 data_x = utils.data.batcher.get_batched_data(data, 32)
-data_y = utils.data.batcher.get_batched_data(data, 1)
-
 data_x = data_x[:-1]
 
-data_y = data_y.reshape([-1, 6])
-data_y = data_y[32:, 4]
+data_y = data[32:, 4]
 
 print('Batched data x shape:', data_x.shape)
 print('Batched data y shape:', data_y.shape)
