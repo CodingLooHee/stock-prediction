@@ -1,6 +1,7 @@
 import utils
 import pandas as pd
 import pathlib
+import matplotlib.pyplot as plt
 
 
 PATH_CWD = pathlib.Path.cwd()
@@ -25,4 +26,11 @@ print('Batched data y shape:', data_y.shape)
 model = utils.model.get_model.model_v1(input_shape=(32, 6))
 model.summary()
 
-model.fit(data_x, data_y, epochs=10, verbose=2)
+model.fit(data_x, data_y, epochs=5, verbose=2)
+
+predicted_y = []
+for i in data_x:
+    predicted_y.append(model.predict(i.reshape([1, 32, 6])))
+
+plt.plot(data_y)
+plt.plot(predicted_y)
