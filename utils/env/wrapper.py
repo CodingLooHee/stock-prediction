@@ -1,5 +1,5 @@
 import numpy as _np
-import random
+import random as _random
 
 class StockerV0:
     def __init__(self, data, startup_range=[0, 100]):
@@ -24,10 +24,10 @@ class StockerV0:
         # If all parameter is in correct form. It's good to go.
         self.data = data
         self._startup_range = startup_range
-        self._ptr = random.randrange(*self._startup_range)
+        self._ptr = _random.randrange(*self._startup_range)
     
     def reset(self):
-        self._ptr = random.randrange(*self._startup_range)
+        self._ptr = _random.randrange(*self._startup_range)
         return self.data_at_ptr
     
     @property
