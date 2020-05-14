@@ -1,4 +1,5 @@
 import numpy as _np
+import random
 
 class StockerV0:
     def __init__(self, data, startup_range=[0, 100]):
@@ -21,6 +22,14 @@ class StockerV0:
             raise ValueError('startup_range must be [min, max] format')
 
         # If all parameter is in correct form. It's good to go.
-        self._data = data
-        self.startup_range = startup_range
-
+        self.data = data
+        self._startup_range = startup_range
+        self._ptr = random.randrange(*self._startup_range)
+    
+    def reset(self):
+        self._ptr = random.randrange(*self._startup_range)
+        return self.data_at_ptr
+    
+    @property
+    def data_at_ptr(self):
+        return self.data[self._ptr]

@@ -15,3 +15,4 @@ print('Data shape:', data.shape)
 
 
 env = utils.env.wrapper.StockerV0(data)
+print(env.reset())
